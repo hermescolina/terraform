@@ -1,0 +1,38 @@
+# Set AWS_PROFILE
+
+# Linux or MacOS
+export AWS_PROFILE=deep-dive
+
+# Windows
+$env:AWS_PROFILE="deep-dive"
+
+# Move API Key to secrets manager
+# Create secrets manager and ec2 role with Terraform
+cd m9/create_secrets_manager
+terraform init
+
+# Set the API key value in terraform.tfvars
+terraform apply
+
+# Note the role name and secret_id
+
+# Create a new branch
+cd ../../application_config
+git checkout main
+git pull
+git checkout -b add-secrets-manager
+
+# Update code to remove the terraform_data block
+# Add variable for role name and secret ID
+# Remove variable for api key
+# Add instance profile resource
+# Update iam_instance to use profile
+# Add secret id to userdata script and templatefile function
+
+# Commit changes
+git add .
+git commit -m "Switch to using secrets manager"
+git push --set-upstream origin add-secrets-manager
+
+# Update variables in workspace
+# Create pull request and merge if it looks right
