@@ -1,6 +1,6 @@
 # Start by setting the GitHub token environment variable
 # PowerShell
-$env:GITHUB_TOKEN="TOKEN_VALUE"
+$env:GITHUB_TOKEN=""
 
 # bash or zsh
 export GITHUB_TOKEN=TOKEN_VALUE
@@ -28,7 +28,7 @@ git add .
 git commit -m "Initial commit"
 
 # Add remote origin
-git remote add origin ORIGIN_URL
+git remote add origin https://github.com/hermescolina/globo-networking.git
 
 # Track main branch
 git fetch
